@@ -101,30 +101,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Exibe o container de resultados
         resultContainer.style.display = 'flex';
     }
+
+    function handleDraw() {
+        if (validateFields()) {
+            const drawnNumbers = drawNumbers();
+            displayNumbers(drawnNumbers);
+        }
+    }
     
     // Event listener para o formulário
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        // Valida os campos
-        if (validateFields()) {
-            // Sorteia os números
-            const drawnNumbers = drawNumbers();
-            
-            // Exibe os números sorteados
-            displayNumbers(drawnNumbers);
-        }
+        handleDraw();
     });
     
     // Event listener para o botão de reset
     resetButton.addEventListener('click', () => {
-        // Valida os campos
-        if (validateFields()) {
-            // Sorteia novos números
-            const drawnNumbers = drawNumbers();
-            
-            // Exibe os números sorteados
-            displayNumbers(drawnNumbers);
-        }
+        handleDraw();
     });
 });
